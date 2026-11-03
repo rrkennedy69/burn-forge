@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Burn Forge">
+<meta name="theme-color" content="#1d2128">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" href="./icon-192.png">
+<title>Burn Forge — LightBurn file editor</title>
+  <script type="module" crossorigin src="./assets/index-7GPBrq35.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-SykIthms.css">
+</head>
+<body class="panel-open">
+<div id="app">
+  <header id="top">
+    <button id="bLib" title="My files">☰ Files</button>
+    <input id="pname" aria-label="Project name" value="Untitled">
+    <span id="saved" class="muted small"></span>
+    <span class="sp"></span>
+    <button id="bUndo" title="Undo" disabled>↶</button><button id="bRedo" title="Redo" disabled>↷</button>
+    <button id="bOpen">Open</button>
+    <button id="bSave" class="pri">Save</button>
+    <button id="bShare" title="Share / Save to Files">Share</button>
+    <button id="bSvg" title="Export SVG">SVG</button>
+    <button id="bSet" title="Workspace settings">⚙</button>
+  </header>
+  <nav id="tools">
+    <button data-tool="select" title="Select / move">➤<small>Select</small></button>
+    <button data-tool="rect" title="Rectangle">▭<small>Rect</small></button>
+    <button data-tool="ellipse" title="Ellipse">◯<small>Ellipse</small></button>
+    <button data-tool="line" title="Line / polyline">╱<small>Line</small></button>
+    <button data-tool="text" title="Text">T<small>Text</small></button>
+    <button data-tool="pan" title="Pan">✋<small>Pan</small></button>
+    <button id="bImport" title="Import SVG">⇪<small>SVG in</small></button>
+    <button id="bMulti" title="Multi-select">⊞<small>Multi</small></button>
+    <button id="bSnap" title="Snap to grid">#<small>Snap</small></button>
+    <button id="bFit" title="Zoom to workspace">⤢<small>Fit</small></button>
+    <button id="bDup" title="Duplicate">⧉<small>Dup</small></button>
+    <button id="bDel" title="Delete">🗑<small>Del</small></button>
+    <button id="bPanel" class="phone" title="Properties">☷<small>Props</small></button>
+  </nav>
+  <main id="stage">
+    <svg id="cv" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="hint"></div>
+    <div id="lineBar" hidden><button id="bLineDone">Finish</button><button id="bLineClose">Close shape</button><button id="bLineCancel">Cancel</button></div>
+  </main>
+  <aside id="panel">
+    <div class="tabs"><button class="tab on" data-tab="shape">Shape</button><button class="tab" data-tab="layers">Layers</button></div>
+    <div id="shapePane" class="pane"></div>
+    <div id="layerPane" class="pane" hidden></div>
+  </aside>
+  <footer id="palette"></footer>
+</div>
+<section id="lib" hidden>
+  <header class="libtop"><button id="bBack">← Editor</button><h1>My files</h1><span class="sp"></span><button id="bLibOpen">Open file…</button><button id="bNew" class="pri">New project</button></header>
+  <p class="muted small pad">Projects are stored on this device (IndexedDB) and autosaved while you edit. Use Download or Save to put a copy in Files / iCloud.</p>
+  <div id="libList"></div>
+  <p class="pad"><button id="bNew2">+ New project</button></p>
+  <p class="muted small pad">Burn Forge makes and edits LightBurn project files (.lbrn2 / .lbrn). It does not control a laser. Not affiliated with LightBurn Software.</p>
+</section>
+<dialog id="settings">
+  <h3>Workspace</h3>
+  <label class="fld"><span>Width mm</span><input id="sW" inputmode="decimal"></label>
+  <label class="fld"><span>Height mm</span><input id="sH" inputmode="decimal"></label>
+  <label class="fld"><span>Snap grid mm</span><input id="sG" inputmode="decimal"></label>
+  <div class="row"><button id="sOk" class="pri">Done</button></div>
+</dialog>
+<input type="file" id="fileIn" hidden>
+<div id="toast" hidden></div>
+</body>
+</html>
